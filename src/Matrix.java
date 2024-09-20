@@ -7,8 +7,8 @@ public class Matrix {
 
     public int max() {
         int max = data[0][0];
-        for (int i = 0; i < data.length; i++) {
-            for (int j = 0; j < data[i].length; j++) {
+        for (int i = 0; i < numberOfLines; i++) {
+            for (int j = 0; j < numberOfColumns; j++) {
                 if (max < data[i][j]) {
                     max = data[i][j];
                 }
@@ -29,9 +29,9 @@ public class Matrix {
             for (int i = 0; i < resultMatrix.numberOfLines; i++) {
                 for (int j = 0; j < resultMatrix.numberOfColumns; j++) {
                     if (j == resultMatrix.numberOfColumns - 1)
-                        output.format("%" + String.valueOf(numberOfDigits) + "d", resultMatrix.data[i][j]);
+                        output.format("%" + numberOfDigits + "d", resultMatrix.data[i][j]);
                     else
-                        output.format("%" + String.valueOf(numberOfDigits) + "d ", resultMatrix.data[i][j]);
+                        output.format("%" + numberOfDigits + "d ", resultMatrix.data[i][j]);
                 }
                 if (i != resultMatrix.numberOfLines - 1)
                     output.format(System.getProperty("line.separator"));
@@ -41,15 +41,11 @@ public class Matrix {
         }
     }
 
-    public static Matrix createSpiral(int n) {
+    public static Matrix createSpiralMatrix(int n) {
         if (n < 1)
             return null;
         Matrix m = new Matrix(n, n);
-        int numberOfLoops = 0, rest = n, number = 1;
-        while (rest > 1) {
-            rest -= 2;
-            numberOfLoops++;
-        }
+        int numberOfLoops = n / 2, rest = n % 2, number = 1;
         for (int k = 0; k < numberOfLoops; k++) {
             for (int j = k; j < n - k; j++) {
                 m.data[k][j] = number;

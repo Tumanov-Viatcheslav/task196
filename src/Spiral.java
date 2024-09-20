@@ -14,7 +14,8 @@ public class Spiral {
     }
 
     public static void main(String[] args) {
-        int data = readDataFromFile("input.txt");
-        Matrix.printMatrixToFile(Matrix.createSpiral(data), "output.txt");
+        int n = readDataFromFile("input.txt");
+        Matrix res = Matrix.createSpiralMatrix(n);
+        Matrix.printMatrixToFile(res, "output.txt");
     }
 }
