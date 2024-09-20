@@ -2,13 +2,6 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-!**/workspace.xml
-
-### Git ignore ###
-!**/.gitignore
-
-### Input file ###
-!**/input.txt
 
 ### Eclipse ###
 .apt_generated
@@ -34,3 +27,4 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/output.txt
